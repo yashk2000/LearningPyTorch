@@ -26,3 +26,20 @@ human interpretable, but the intermediate representations are less so. These flo
 - Tensors can be serialized to disk and loaded back.
 - All tensor operations in PyTorch can execute on the CPU as well as on the GPU(`tensor.to(device="cuda")`).
 - PyTorch uses a trailing underscore to indicate that a function operates in place on a tensor (for example, Tensor.sqrt_ ).
+
+## 📊 Loading data in PyTorch 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yashk2000/LearningPyTorch/blob/main/Datasets.ipynb)
+
+Link to notebook: [https://github.com/yashk2000/LearningPyTorch/blob/main/Datasets.ipynb](https://github.com/yashk2000/LearningPyTorch/blob/main/Datasets.ipynb)
+
+- Neural networks require data to be represented as multidimensional numerical tensors, often 32-bit floating-point.
+- Images can have one or many channels. The most common are the red-green-blue channels of typical digital photos. Many images have a per-channel bit depth of 8, though 12 and 16 bits per channel are not uncommon. These bit depths can all be stored in a 32-bit floating-point number without loss of precision.
+- Single-channel data formats sometimes omit an explicit channel dimension.
+- Volumetric data is similar to 2D image data, with the exception of adding a third dimension (depth).
+- Converting spreadsheets to tensors can be very straightforward. Categorical and ordinal-valued columns should be handled differently from interval-valued
+columns.
+
+| ![img](https://user-images.githubusercontent.com/41234408/106006939-c4281e80-60db-11eb-9fd2-aa36d2314225.png)  |
+|---|
+| Deciding between using values directly, one hot encoding or embedding |
