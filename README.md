@@ -43,3 +43,24 @@ columns.
 | ![img](https://user-images.githubusercontent.com/41234408/106006939-c4281e80-60db-11eb-9fd2-aa36d2314225.png)  |
 |---|
 | Deciding between using values directly, one hot encoding or embedding |
+
+## 🏎️ Stuff like autograd, how machine learning works
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yashk2000/LearningPyTorch/blob/main/StuffLikeAutograd.ipynb)
+
+Link to notebook: [https://github.com/yashk2000/LearningPyTorch/blob/main/StuffLikeAutograd.ipynb](https://github.com/yashk2000/LearningPyTorch/blob/main/StuffLikeAutograd.ipynb)
+
+- Linear models are the simplest reasonable model to use to fit data.
+- Convex optimization techniques can be used for linear models, but they do not generalize to neural networks, so we focus on stochastic gradient descent for
+parameter estimation.
+- Deep learning can be used for generic models that are not engineered for solving a specific task, but instead can be automatically adapted to specialize them-
+selves on the problem at hand.
+- Learning algorithms amount to optimizing parameters of models based on observations. A loss function is a measure of the error in carrying out a task,
+such as the error between predicted outputs and measured values. The goal is to get the loss function as low as possible.
+- The rate of change of the loss function with respect to the model parameters can be used to update the same parameters in the direction of decreasing loss.
+- The optim module provides a collection of ready-to-use optimizers for updating parameters and minimizing loss functions.
+- Optimizers use the autograd feature of PyTorch to compute the gradient for each parameter, depending on how that parameter contributes to the final out-
+put. This allows users to rely on the dynamic computation graph during complex forward passes.
+- Context managers like with `torch.no_grad()`: can be used to control autograd’s behavior.
+- The grads are accumulated on top of each other. Therefore whenever we call grad again, it will calculate the loss, and accumulate the gradient on top of the existing one, giving a wrong value. Hence we need to manually set the grad to 0 at each iteration. 
+- We do not need to accumulate the gradients on the validaiton data set since we're not training models on it. In order to do this, we can use `torch.no_grad()` or `torch.set_grad_enabled()`
