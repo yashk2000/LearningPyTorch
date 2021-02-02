@@ -64,3 +64,17 @@ put. This allows users to rely on the dynamic computation graph during complex f
 - Context managers like with `torch.no_grad()`: can be used to control autograd’s behavior.
 - The grads are accumulated on top of each other. Therefore whenever we call grad again, it will calculate the loss, and accumulate the gradient on top of the existing one, giving a wrong value. Hence we need to manually set the grad to 0 at each iteration. 
 - We do not need to accumulate the gradients on the validaiton data set since we're not training models on it. In order to do this, we can use `torch.no_grad()` or `torch.set_grad_enabled()`
+
+## :brain: Simple neural networks with PyTorch
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yashk2000/LearningPyTorch/blob/main/NeuralNetworks.ipynb)
+
+Link to notebook: [https://github.com/yashk2000/LearningPyTorch/blob/main/NeuralNetworks.ipynb](https://github.com/yashk2000/LearningPyTorch/blob/main/NeuralNetworks.ipynb)
+
+- Neural networks can be automatically adapted to specialize themselves on the problem at hand.
+- Neural networks allow easy access to the analytical derivatives of the loss with respect to any parameter in the model, which makes evolving the parameters
+very efficient. 
+- Activation functions around linear transformations make neural networks capable of approximating highly nonlinear functions, at the same time keeping
+them simple enough to optimize.
+- The nn module together with the tensor standard library provide all the building blocks for creating neural networks.
+- To recognize overfitting, it’s essential to maintain the training set of data points separate from the validation set. There’s no one recipe to combat overfitting, but getting more data, or more variability in the data, and resorting to simpler models are good starts.
