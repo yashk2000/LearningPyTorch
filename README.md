@@ -78,3 +78,23 @@ very efficient.
 them simple enough to optimize.
 - The nn module together with the tensor standard library provide all the building blocks for creating neural networks.
 - To recognize overfitting, it’s essential to maintain the training set of data points separate from the validation set. There’s no one recipe to combat overfitting, but getting more data, or more variability in the data, and resorting to simpler models are good starts.
+
+## ✈️ Making a simple neural network to differentiate between planes and birds
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yashk2000/LearningPyTorch/blob/main/CIFAR10.ipynb)
+
+Link to notebook: [https://github.com/yashk2000/LearningPyTorch/blob/main/NeuralNetworks.ipynb](https://github.com/yashk2000/LearningPyTorch/blob/main/CIFAR10.ipynb)
+
+- Use `ToTensor()` to convert images into tensors before feeding them to a network 
+- Find the mean and standard deviation of an image and then normalize the image. 
+```python
+imgs.view(3, -1).mean(dim=1)
+imgs.view(3, -1).std(dim=1)
+transforms.Normalize((0.4915, 0.4823, 0.4468), (0.2470, 0.2435, 0.2616))
+```
+- Use `DataLoader` to make batches from the input data. 
+```python
+train_loader = torch.utils.data.DataLoader(cifar2, batch_size=64,
+                                           shuffle=True)
+```
+- For a classification task, using the softmax function on the output of a network produces values that satisfy the requirements for being interpreted as probabilities. The ideal loss function for classification in this case is obtained by using the output of softmax as the input of a non-negative log likelihood function. The combination of softmax and such loss is called cross entropy in PyTorch.
