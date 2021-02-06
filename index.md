@@ -65,7 +65,7 @@ put. This allows users to rely on the dynamic computation graph during complex f
 - The grads are accumulated on top of each other. Therefore whenever we call grad again, it will calculate the loss, and accumulate the gradient on top of the existing one, giving a wrong value. Hence we need to manually set the grad to 0 at each iteration. 
 - We do not need to accumulate the gradients on the validaiton data set since we're not training models on it. In order to do this, we can use `torch.no_grad()` or `torch.set_grad_enabled()`
 
-## :brain: Simple neural networks with PyTorch
+## 🧠 Simple neural networks with PyTorch
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yashk2000/LearningPyTorch/blob/main/NeuralNetworks.ipynb)
 
